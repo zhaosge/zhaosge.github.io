@@ -1,0 +1,36 @@
+name: Deploy Hexo Site to Pages
+
+on:
+  # 当有代码推送到 master 分支时触发
+  push:
+    branches:
+      - main # 请根据你的源代码分支名称修改，可能是 main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout 🛎️
+        uses: actions/checkout@v4
+        with:
+          submodules: true # 如果你的主题是 git submodule，请保留此行
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18' # 指定 Node.js 版本
+          cache: 'npm'
+
+      - name: Install Dependencies 📦
+        run: npm install
+
+      - name: Build Site ⚙️
+        run: npx hexo generate
+
+      - name: Deploy 🚀
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public # 根据你的 _config.yml 配置，Hexo 生成的文件夹为 public
+          # publish_branch: gh-pages # 默认就是 gh-pages，可以不写
+          # cname: your.custom.domain # 如果有自定义域名，取消此行注释并修改
