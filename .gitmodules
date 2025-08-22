@@ -1,0 +1,3 @@
+[submodule "themes/mdsuper"]
+    path = themes/mdsuper
+    url = https://github.com/tobylai-toby/hexo-theme-mdsuper.git
