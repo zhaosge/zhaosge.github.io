@@ -101,4 +101,6 @@ remote_theme: tobylai-toby/hexo-theme-mdsuper
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'git'
+  repo: 'https://zhaosge.github.io'
+  branch: 'main'
