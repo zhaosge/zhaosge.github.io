@@ -1,0 +1,2 @@
+# Hexo+Fluid主题的博客页面
+部署完成Hexo与Fluid之后，推送到main分支，随后Actions会自动生成静态网页文件在gh-pages分支；Github Pages会读取静态分支中的文件形成可访问的website
